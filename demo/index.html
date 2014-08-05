@@ -4,22 +4,19 @@
 <head>
   <meta charset="utf-8">
 
-  <title>jQuery Hex Color Picker Examples</title>
-  <meta name="description" content="The HTML5 Herald">
+  <title>jQuery Hex ColorPicker Demo</title>
+  <meta name="description" content="jQuery Hex ColorPicker">
   <meta name="author" content="Boone Putney" >
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
   <script src="../src/jquery-hex-colorpicker.js"></script>
   <link rel="stylesheet" href="../src/jquery-hex-colorpicker.css" />
-
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
 </head>
 
 <script type="text/javascript">
 jQuery(function(){
+	jQuery("#color-picker1").hexColorPicker();
 	jQuery(".color-picker").hexColorPicker({
 		"container":"dialog",
 		"colorModel":"hsv",
@@ -39,8 +36,36 @@ jQuery(function(){
 <body>
 	<h1>jQuery Hex Picker Demo</h1>
   <form>
+  	<h2>Demo 1:</h2>
+  	<p>jquery-hex-colorpicker default implementation</p>
+  	<pre><code>
+  	jQuery("#color-picker1").hexColorPicker();
+  	</code></pre>
+  	<br/>
+  	<input type="text" id="color-picker1"/>
+  	<h2>Demo 2:</h2>
+  	<p>jquery-hex-colorpicker using the jquery-ui "dialog" container.  <strong>Note: jQuery UI must 
+  	be included for this option to work</strong>.  Also, the function is applied to two inputs with the same class.</p>
+  	<pre><code>
+  	jQuery(".color-picker").hexColorPicker({
+		"container":"dialog",
+	});
+  	</code></pre>
+  	<br/>
 	<input type="text" class="color-picker"/>
 	<input type="text" class="color-picker"/>
+	<h2>Demo 2:</h2>
+  	<p>jquery-hex-colorpicker using the HSL color map, also adjusting the number of boxes, size of picker, and using the "box" style.</p>
+  	<pre><code>
+  	jQuery("#color-picker2").hexColorPicker({
+		"container":"dialog",
+		"colorModel":"hsl",
+		"pickerWidth":400,
+		"size":15,
+		"style":"box",
+	});
+  	</code></pre>
+  	<br/>
 	<input type="text" id="color-picker2"/>
   </form>
 </body>

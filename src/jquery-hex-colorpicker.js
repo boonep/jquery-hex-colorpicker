@@ -24,13 +24,13 @@
 	$.fn.extend({
         hexColorPicker: function(options) {
             this.defaultOptions = {
-            	"colorModel":"hsv",
+            	"colorModel":"hsv", //hsv or hsl
 					"size":5, //length of picker
-					"pickerWidth":200, //width of picker
-					"container":"none", //"none", "dialog"
-					"innerMargin":20,
-					"style":"hex", //"hex", "box"
-					"colorizeTarget":true,
+					"pickerWidth":200, //width of picker (entire hexagonal area) in pixels
+					"container":"none", //contain picker in standard div, or jquery-ui-dialog: "none", "dialog"
+					"innerMargin":20, //margin between elements in pixels
+					"style":"hex", //block style for individual color options: "hex" or "box"
+					"colorizeTarget":true, //colorize background and text of target input: true or false
             };
 
             var settings = $.extend({}, this.defaultOptions, options);
