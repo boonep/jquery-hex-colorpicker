@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>jQuery Hex Color Picker Examples</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="Boone Putney" >
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+  <script src="../src/jquery-hex-colorpicker.js"></script>
+  <link rel="stylesheet" href="../src/jquery-hex-colorpicker.css" />
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<script type="text/javascript">
+jQuery(function(){
+	jQuery(".color-picker").hexColorPicker({
+		"container":"dialog",
+		"colorModel":"hsv",
+		"pickerWidth":300,
+		"size":7,
+		"style":"hex",
+	});
+});
+</script>
+<body>
+	<h1>jQuery Hex Picker Demo</h1>
+  <form>
+	<input type="text" class="color-picker"/>
+  </form>
+</body>
+</html>
