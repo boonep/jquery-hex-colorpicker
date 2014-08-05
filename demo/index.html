@@ -27,12 +27,21 @@ jQuery(function(){
 		"size":7,
 		"style":"hex",
 	});
+	jQuery("#color-picker2").hexColorPicker({
+		"container":"dialog",
+		"colorModel":"hsv",
+		"pickerWidth":400,
+		"size":15,
+		"style":"box",
+	});
 });
 </script>
 <body>
 	<h1>jQuery Hex Picker Demo</h1>
   <form>
 	<input type="text" class="color-picker"/>
+	<input type="text" class="color-picker"/>
+	<input type="text" id="color-picker2"/>
   </form>
 </body>
 </html>
