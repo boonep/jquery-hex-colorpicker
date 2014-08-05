@@ -58,8 +58,10 @@
             }); //end return
             
             function fontColor(hexColor){
-					var [r,g,b]= hexColor.replace("#","").match(/.{1,2}/g);
-					[r,g,b] = [parseInt(r,16)/255,parseInt(g,16)/255,parseInt(b,16)/255];
+					var rgb = hexColor.replace("#","").match(/.{1,2}/g);
+					var r = parseInt(rgb[0],16)/255;
+					var g = parseInt(rgb[1],16)/255;
+					var b = parseInt(rgb[2],16)/255;
 					var luma = 0.30*r + 0.59*g + 0.11*b;
 					return (luma > 0.6) ? '#000000':'#ffffff';	
 				}
@@ -161,7 +163,6 @@
 							});
 						});
 						$('.color-picker-container .color-block').css("background-color","transparent");
-						console.log(20);
 						$('.hex-color-picker-wrapper .picker-sidebar .color-block').css({
 							"height":(topHeight+middleHeight).toString()+"px",
 						});
@@ -200,36 +201,51 @@
 						X=chroma*(1-Math.abs(huePrime%2-1));
 						matchValue=(valueLightness-1/2*chroma);
 					}
-					var [r,g,b] = [0,0,0]; //default if undefined
+					var r,g,b = 0;
 					switch(Math.floor(huePrime)){
 						case 0:
-							[r,g,b]=[chroma,X,0];
+						   r = chroma;
+						   g = X;
+						   b = 0;
 							break;
 						case 1:
-							[r,g,b]=[X,chroma,0];
+						   r = X;
+						   g = chroma;
+						   b = 0;
 							break;
 						case 2:
-							[r,g,b]=[0,chroma,X];
+						   r = 0;
+						   g = chroma;
+						   b = X;
 							break;
 						case 3:
-							[r,g,b]=[0,X,chroma];
+						   r = 0;
+						   g = X;
+						   b = chroma;
 							break;
 						case 4:
-							[r,g,b]=[X,0,chroma];
+						   r = X;
+						   g = 0;
+						   b = chroma;
 							break;
 						case 5:
-							[r,g,b]=[chroma,0,X];
+						   r = chroma;
+						   g = 0;
+						   b = X;
 							break;	
 					}
-					[r,g,b]=[Math.round((r+matchValue)*255),Math.round((g+matchValue)*255),Math.round((b+matchValue)*255)];
+					r = Math.round((r+matchValue)*255);
+					g = Math.round((g+matchValue)*255);
+					b = Math.round((b+matchValue)*255);
 					return numericRGBtoString(r,g,b);
-				
 				}   
 			   
 				function createSidebar(rgbColor){
-					var huePrime,r,g,b;
-					[rgbColor,r,g,b] = rgbColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-					[r,g,b]=[r/255,g/255,b/255];
+					var huePrime;
+					var rgb = rgbColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+					var r = rgb[1]/255;
+					var g = rgb[2]/255;
+					var b = rgb[3]/255;
 					var maxComponent = Math.max.apply(Math,[r,g,b]);
 					var minComponent = Math.min.apply(Math,[r,g,b]);
 					var chroma=maxComponent-minComponent;
@@ -279,6 +295,7 @@
 							}else{
 								valueLightness=0.5;
 							}
+							if(normRadius===0){angle=0;}//force angle to prevent undefined
 							output+="<div class='color-block' style='background-color:"+colorizeBlock(normRadius,angle,valueLightness)+"'></div>";			
 						}
 						output+="</div>";

@@ -10,23 +10,19 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
-  <script src="../src/jquery-hex-colorpicker.js"></script>
+  <script src="../src/jquery-hex-colorpicker.min.js"></script>
   <link rel="stylesheet" href="../css/jquery-hex-colorpicker.css" />
 </head>
 
 <script type="text/javascript">
 jQuery(function(){
 	jQuery("#color-picker1").hexColorPicker();
-	jQuery(".color-picker").hexColorPicker({
+  	jQuery(".color-picker").hexColorPicker({
 		"container":"dialog",
-		"colorModel":"hsv",
-		"pickerWidth":300,
-		"size":7,
-		"style":"hex",
 	});
-	jQuery("#color-picker2").hexColorPicker({
+  	jQuery("#color-picker2").hexColorPicker({
 		"container":"dialog",
-		"colorModel":"hsv",
+		"colorModel":"hsl",
 		"pickerWidth":400,
 		"size":15,
 		"style":"box",
