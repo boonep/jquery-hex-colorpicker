@@ -58,10 +58,9 @@
             }); //end return
             
             function fontColor(hexColor){
-					[r,g,b]= hexColor.replace("#","").match(/.{1,2}/g);
+					var [r,g,b]= hexColor.replace("#","").match(/.{1,2}/g);
 					[r,g,b] = [parseInt(r,16)/255,parseInt(g,16)/255,parseInt(b,16)/255];
-					lightness = 1/2*(maxComponent+minComponent);
-					luma = 0.30*r + 0.59*g + 0.11*b;
+					var luma = 0.30*r + 0.59*g + 0.11*b;
 					return (luma > 0.6) ? '#000000':'#ffffff';	
 				}
 			
@@ -131,12 +130,11 @@
 					if(settings.style=="hex"){
 						$('.color-picker-container .color-block').addClass("hex");
 						$('.color-picker-container .color-block').html('<div class="top"></div><div class="middle"></div><div class="bottom"></div>');
-						var output="";
 						var middleHeight = Math.ceil(settings.blockWidth/Math.pow(8,1/4));
 						var topHeight = Math.ceil(middleHeight/2);
 						var halfWidth = Math.floor(settings.blockWidth/2);
 						$('.color-picker-container .color-block').each(function(){
-							blockColor=$(this).css("background-color");
+							var blockColor=$(this).css("background-color");
 							$(".picker-row").css({
 							   "height":"auto",
 							});
@@ -189,10 +187,10 @@
 				}   
 			   
 				function colorizeBlock(normRadius, angle, valueLightness){
-					var angle, hue, lightness, saturation,r,g,b;
-					hue=angle%360;//swap 360 with 0;
-					saturation=normRadius;
-					huePrime=hue/60;
+					var chroma,X,matchValue;
+					var hue=angle%360;//swap 360 with 0;
+					var saturation=normRadius;
+					var huePrime=hue/60;
 					if(settings.colorModel === "hsv"){
 						chroma=valueLightness*saturation;
 						X=chroma*(1-Math.abs(huePrime%2-1));
@@ -202,7 +200,7 @@
 						X=chroma*(1-Math.abs(huePrime%2-1));
 						matchValue=(valueLightness-1/2*chroma);
 					}
-					[r,g,b] = [0,0,0]; //default if undefined
+					var [r,g,b] = [0,0,0]; //default if undefined
 					switch(Math.floor(huePrime)){
 						case 0:
 							[r,g,b]=[chroma,X,0];
@@ -231,11 +229,11 @@
 				function createSidebar(rgbColor){
 					var huePrime,r,g,b;
 					[rgbColor,r,g,b] = rgbColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-					[r,g,b]=[r/255,g/255,b/255]
-					maxComponent = Math.max.apply(Math,[r,g,b]);
-					minComponent = Math.min.apply(Math,[r,g,b]);
-					chroma=maxComponent-minComponent;
-					if(chroma==0){
+					[r,g,b]=[r/255,g/255,b/255];
+					var maxComponent = Math.max.apply(Math,[r,g,b]);
+					var minComponent = Math.min.apply(Math,[r,g,b]);
+					var chroma=maxComponent-minComponent;
+					if(chroma===0){
 						huePrime=0;
 					}else if(maxComponent==r){
 						huePrime=((g-b)/chroma+6)%6;		
@@ -244,9 +242,9 @@
 					}else if(maxComponent==b){
 						huePrime=((r-g)/chroma)+4;		
 					}
-					hue=huePrime*60;
-					saturation=chroma;
-					valueLightness=1;
+					var hue=huePrime*60;
+					var saturation=chroma;
+					var valueLightness=1;
 					for(var row=0;row<settings.maxBlocks;row++){
 						$('.picker-sidebar .color-block:eq('+row+')').css({
 							'background-color':colorizeBlock(saturation,hue,valueLightness),
@@ -264,14 +262,14 @@
 					for(var row=0;row<settings.maxBlocks;row++){
 						var blocksCount = settings.size+row;
 						if(row>=settings.size){
-							blocksCount = settings.size*2-(row-settings.size+2)	
+							blocksCount = settings.size*2-(row-settings.size+2);	
 						}	
-						output+="<div class='picker-row'>"
+						output+="<div class='picker-row'>";
 						for(var block=0;block<blocksCount;block++){
 							y=centerBlock-row;
 							x=-centerBlock+(block+(settings.maxBlocks-blocksCount)/2);
 							radius=Math.sqrt(Math.pow(x,2)+Math.pow(y,2));
-							normRadius=radius/maxRadius;
+							var normRadius=radius/maxRadius;
 							angle=Math.atan(y/x)*180/Math.PI+90;
 							if(x>=0){
 								angle+=180;//compensate for right 2 quadrants			
@@ -287,7 +285,7 @@
 					}
 					output+="</div>";
 					output+='<div class="picker-sidebar">';
-					for(var row=0;row<settings.maxBlocks;row++){
+					for(row=0;row<settings.maxBlocks;row++){
 						output+="<div class='color-block'></div>";
 					}
 					output+='</div>';
