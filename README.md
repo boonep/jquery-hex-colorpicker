@@ -33,7 +33,7 @@ You can also add options to customize to your needs:
 
 ##More Information
 
-For more information on how to setup a rules and customizations, [check the documentation](http://www.booneputney.com/jquery-hex-colorpicker/).
+For more information on how to setup a rules and customizations, or to see a demo [visit our website](http://www.booneputney.com/jquery-hex-colorpicker.html).
 
 ## License
 Copyright (c) 2014 Boone Putney
