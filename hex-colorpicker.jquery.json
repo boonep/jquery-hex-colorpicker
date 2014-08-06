@@ -1,0 +1,19 @@
+{
+  "name": "hex-colorpicker",
+  "version": "1.0.0",
+  "title":  "jQuery Hex Colorpicker",
+  "description": "A simple plugin for visual selection of colors via a discrete hexagonal color picker using hsl or hsv mapping.",
+  "author": {
+    "name": "Boone Putney",
+    "url": "http://booneputney.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/carhartl/jquery-cookie/master/MIT-LICENSE.txt"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.3"
+  }
+}
