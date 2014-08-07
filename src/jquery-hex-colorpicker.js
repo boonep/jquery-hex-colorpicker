@@ -115,8 +115,7 @@
 					//set value on submit
 					$('.hex-color-picker-wrapper .picker-form').submit(function(e){
 						if($(".picker-form .selected-color").val().length>0){
-							var selectedColor = rgbToHex($(".picker-form .selected-color").val());
-							e.preventDefault();
+							var selectedColor = rgbToHex($(".picker-form .selected-color").val());							
 							settings.targetElem.val(selectedColor);
 							if(settings.colorizeTarget){
 								settings.targetElem.css({
@@ -125,6 +124,7 @@
 								});
 							}
 						}
+						e.preventDefault();
 						$('.hex-color-picker-wrapper').remove();
 					});
 					

@@ -1,6 +1,6 @@
 {
   "name": "hex-colorpicker",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "title":  "jQuery Hex Colorpicker",
   "description": "A simple plugin for visual selection of colors via a discrete hexagonal color picker using hsl or hsv mapping.",
   "docs": "http://booneputney.com/jquery-hex-colorpicker.html",
