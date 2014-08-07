@@ -1,6 +1,6 @@
 {
   "name": "hex-colorpicker",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "title":  "jQuery Hex Colorpicker",
   "description": "A simple plugin for visual selection of colors via a discrete hexagonal color picker using hsl or hsv mapping.",
   "docs": "http://booneputney.com/jquery-hex-colorpicker.html",
@@ -19,16 +19,5 @@
   "dependencies": {
     "jquery": ">=1.3"
   },
-  "keywords": [
-    "color",
-    'picker',
-    'rgb',
-    'hex',
-    "colorpicker",
-    "ui",
-    'input',
-    'form',
-    'hsv',
-    'hsl'
-  ],
+  "keywords": ["color", "picker", "rgb", "hex", "colorpicker", "ui", "input", "form", "hsv", "hsl", "dialog"]
 }
