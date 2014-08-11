@@ -31,6 +31,8 @@
 					"innerMargin":20, //margin between elements in pixels
 					"style":"hex", //block style for individual color options: "hex" or "box"
 					"colorizeTarget":true, //colorize background and text of target input: true or false
+                    "selectCallback":false, //callback after a color were selected
+                    "submitCallback":false //callback after a color were submitted
             };
 
             var settings = $.extend({}, this.defaultOptions, options);
@@ -111,6 +113,9 @@
 							"background-color":selectedColor,
 							"color":fontColor(selectedColor),
 						});
+                        if(settings.selectCallback !== false) {
+                            settings.selectCallback(selectedColor);
+                        }
 					});
 					//set value on submit
 					$('.hex-color-picker-wrapper .picker-form').submit(function(e){
@@ -123,6 +128,9 @@
 									"color":fontColor(selectedColor),
 								});
 							}
+                            if(settings.submitCallback !== false) {
+                                settings.submitCallback(selectedColor);
+                            }
 						}
 						e.preventDefault();
 						$('.hex-color-picker-wrapper').remove();
