@@ -10,7 +10,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
-  <script src="../src/jquery-hex-colorpicker.min.js"></script>
+  <script src="../src/jquery-hex-colorpicker.js"></script>
   <link rel="stylesheet" href="../css/jquery-hex-colorpicker.css" />
 </head>
 
@@ -26,6 +26,8 @@ jQuery(function(){
 		"pickerWidth":400,
 		"size":15,
 		"style":"box",
+		"selectCallback":function(color){console.log("Selected: "+color)},
+		"submitCallback":function(color){console.log("Submitted: "+color)}
 	});
 });
 </script>
@@ -59,6 +61,8 @@ jQuery(function(){
 		"pickerWidth":400,
 		"size":15,
 		"style":"box",
+		"selectCallback":function(color){console.log("Selected: "+color)},
+		"submitCallback":function(color){console.log("Submitted: "+color)}
 	});
   	</code></pre>
   	<br/>
